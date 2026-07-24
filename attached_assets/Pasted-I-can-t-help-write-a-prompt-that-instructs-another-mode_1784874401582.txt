@@ -1,0 +1,479 @@
+I can't help write a prompt that instructs another model to reproduce or embed the full copyrighted lyrics you've pasted into a website. If you have permission from the copyright holder, you can add the lyrics yourself after generation, or replace them with a placeholder like [Licensed lyrics go here].
+
+Here's an updated prompt that tells Google AI Studio to build the website only, removes the PRD/folder-generation request, and adds much more ambitious cinematic 3D features.
+
+
+---
+
+You are NOT generating documentation.
+
+DO NOT create PRD pages, architecture pages, folder structure pages, developer documentation, technical specifications, or code explanation pages inside the website.
+
+Your only task is to BUILD the actual production-ready React application.
+
+The existing Moon Beyond Reach project already exists.
+
+Transform it into an Awwwards Site of the Year / FWA / CSS Design Awards level cinematic interactive web experience.
+
+Keep every existing feature.
+
+Do NOT simplify anything.
+
+Instead, massively upgrade every scene, animation, interaction, lighting, shader, camera movement, and emotional storytelling.
+
+==================================================
+
+PROJECT
+
+Moon Beyond Reach
+
+Inspired by the Odia song
+"Dura Akasare Janha Tie"
+
+The website itself becomes the song.
+
+The visitor should feel like they are inside a dream.
+
+==================================================
+
+TECH STACK
+
+React 19
+
+TypeScript
+
+Vite
+
+TailwindCSS
+
+Motion (motion.dev)
+
+Three.js
+
+React Three Fiber
+
+Drei
+
+Postprocessing
+
+Leva
+
+Howler
+
+Lenis
+
+GLSL
+
+WebGL2
+
+WebGPU fallback if available
+
+==================================================
+
+USE
+
+npm install motion
+
+Use Motion everywhere for premium spring animations.
+
+Clone and apply UI/UX inspiration from
+
+https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+
+Follow its interaction quality.
+
+==================================================
+
+DO NOT BUILD
+
+Landing page
+
+Hero section
+
+Business website
+
+Portfolio
+
+Blog
+
+Documentation
+
+PRD drawer
+
+Architecture drawer
+
+Settings page full of text
+
+Developer panels
+
+This must feel like a movie.
+
+==================================================
+
+INTRO
+
+Website opens in complete darkness.
+
+No loading spinner.
+
+No logo.
+
+No buttons.
+
+No menus.
+
+Only silence.
+
+Slow heartbeat.
+
+Tiny particles slowly appear.
+
+Stars begin forming.
+
+Fog slowly fades.
+
+Moonlight appears.
+
+Camera slowly rises.
+
+Music begins.
+
+==================================================
+
+THE SONG
+
+Do NOT hardcode copyrighted lyrics.
+
+Instead, create a synchronized lyric presentation system that can display licensed lyrics supplied by the user.
+
+Each lyric line should become part of the environment rather than plain text.
+
+Examples:
+
+Letters forming from stars
+
+Moonlight writing
+
+Water reflections
+
+Floating glowing particles
+
+Cloud formations
+
+Constellation lines
+
+Fireflies carrying words
+
+Mist revealing words
+
+Light rays forming typography
+
+Typography dissolving into galaxies
+
+==================================================
+
+3D WORLD
+
+Replace static backgrounds with a fully explorable world.
+
+Infinite sky
+
+Nebula
+
+Galaxy
+
+Moon
+
+Cloud layers
+
+Atmospheric scattering
+
+Procedural stars
+
+Dynamic weather
+
+Moving fog
+
+Real volumetric clouds
+
+Floating islands
+
+Moonlit lake
+
+Bioluminescent forest
+
+Ancient temple ruins
+
+Crystal cave
+
+Endless ocean
+
+Northern lights
+
+==================================================
+
+UNREAL ENGINE QUALITY
+
+Physically based rendering
+
+HDR
+
+Real reflections
+
+Bloom
+
+Volumetric lighting
+
+God Rays
+
+SSAO
+
+SSR
+
+Depth of Field
+
+Lens distortion
+
+Film Grain
+
+Procedural fog
+
+Dynamic exposure
+
+Soft moon shadows
+
+==================================================
+
+THE MOON
+
+The moon is alive.
+
+It slowly breathes.
+
+It emits moon dust.
+
+Tiny rocks orbit around it.
+
+Its surface contains moving glowing cracks.
+
+It has realistic displacement.
+
+Clouds move in front of it.
+
+Moonlight changes every minute.
+
+==================================================
+
+THE WATER
+
+Mirror quality.
+
+Every touch
+
+creates
+
+ripples
+
+waves
+
+moon distortion
+
+particle splash
+
+light scattering
+
+mist
+
+floating petals
+
+==================================================
+
+THE SKY
+
+Thousands of animated stars.
+
+Milky Way.
+
+Nebula.
+
+Meteor showers.
+
+Aurora.
+
+Solar wind.
+
+Moon halo.
+
+Fireflies.
+
+Floating dust.
+
+Constellations.
+
+==================================================
+
+PARTICLE SYSTEM
+
+Millions of GPU particles.
+
+Particles react to
+
+music
+
+camera
+
+touch
+
+moonlight
+
+rain
+
+wind
+
+lyrics
+
+==================================================
+
+LYRIC EFFECTS
+
+Each lyric line should have a unique cinematic presentation.
+
+Examples
+
+One line appears as moonlight.
+
+Next appears as constellation.
+
+Next appears from water.
+
+Next appears from rain.
+
+Next appears from flying birds.
+
+Next appears inside fog.
+
+Next appears from glowing butterflies.
+
+Next appears from floating flower petals.
+
+Next appears as galaxy dust.
+
+Never repeat effects.
+
+==================================================
+
+CAMERA
+
+Hollywood camera.
+
+Floating movement.
+
+Parallax.
+
+Slow zoom.
+
+Rack focus.
+
+Cinematic transitions.
+
+No robotic movement.
+
+==================================================
+
+AUDIO REACTION
+
+Bass
+
+Moon pulse
+
+Water waves
+
+Tree sway
+
+Camera vibration
+
+Fog movement
+
+Particle explosion
+
+Treble
+
+Constellation sparkle
+
+Moon glow
+
+Fireflies
+
+High frequency bloom
+
+==================================================
+
+SECRET MOMENTS
+
+If the visitor waits quietly for 60 seconds
+
+A rare celestial event happens.
+
+If they tap the moon 7 times
+
+A hidden constellation appears.
+
+If they watch until the end
+
+The sky slowly becomes sunrise.
+
+==================================================
+
+EMOTIONAL DETAILS
+
+The world should never feel empty.
+
+Everything should breathe.
+
+Everything should move.
+
+Everything should feel alive.
+
+No sudden animations.
+
+Everything uses premium spring physics.
+
+==================================================
+
+PERFORMANCE
+
+60 FPS minimum.
+
+120 FPS on flagship devices.
+
+GPU optimized.
+
+Lazy loading.
+
+Texture compression.
+
+LOD.
+
+Instanced meshes.
+
+Frustum culling.
+
+Shader optimization.
+
+==================================================
+
+FINAL EXPERIENCE
+
+The visitor should not feel like they visited a website.
+
+They should feel like they experienced a beautiful interactive animated short film that stays in their memory for years.
+
+No placeholders.
+
+No TODOs.
+
+No mockups.
+
+Build the complete production-ready application.
+
+One additional suggestion: instead of displaying the full lyrics all at once, build a timeline-based lyric engine where each licensed line triggers a unique 3D cinematic event. That will create a much more immersive experience than treating the lyrics as ordinary text.

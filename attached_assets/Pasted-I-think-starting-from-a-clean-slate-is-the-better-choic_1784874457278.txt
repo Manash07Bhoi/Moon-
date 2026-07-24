@@ -1,0 +1,545 @@
+I think starting from a clean slate is the better choice.
+
+Your previous PRD mixed together many ideas (hacker theme, parallel universe, moon world, personal website, portfolio elements, etc.). For a cinematic experience built around one licensed song, a much stronger design is one with one clear artistic vision.
+
+For this project, I would not build a normal "3D website." I would build what I'd call a Real-Time Interactive Music Film.
+
+
+---
+
+New Vision
+
+Project Codename
+
+> LUNA // BEYOND REACH
+
+
+
+A cinematic WebGL experience.
+
+Not a portfolio.
+
+Not a lyric page.
+
+Not a music player.
+
+Not a game.
+
+It feels like walking inside the emotion of the song.
+
+The lyrics don't appear as subtitles.
+
+Instead...
+
+the world itself sings.
+
+
+---
+
+Design Philosophy
+
+The visitor should feel:
+
+Peace
+
+Loneliness
+
+Wonder
+
+Hope
+
+Distance
+
+Silence
+
+
+Everything should move slowly.
+
+No flashy gaming UI.
+
+No neon cyberpunk.
+
+No unnecessary effects.
+
+Every movement should have meaning.
+
+
+---
+
+Story
+
+The world tells the story without explaining anything.
+
+A traveller walks through six impossible worlds.
+
+Nobody speaks.
+
+Nobody appears.
+
+The moon is always visible.
+
+But it is never reachable.
+
+The world slowly changes according to the song.
+
+
+---
+
+Six Worlds
+
+Instead of six scenes...
+
+Create six living worlds.
+
+
+---
+
+World 1
+
+Infinite Night
+
+The beginning.
+
+Only stars.
+
+Galaxy.
+
+Nebula.
+
+Soft fog.
+
+Tiny fireflies.
+
+Floating particles.
+
+The visitor feels very small.
+
+
+---
+
+World 2
+
+Mountain of Silence
+
+Huge mountains.
+
+Moon above.
+
+Snow.
+
+Clouds.
+
+Waterfall.
+
+Pine forest.
+
+Wind.
+
+Nothing happens quickly.
+
+
+---
+
+World 3
+
+Mirror Lake
+
+The entire world reflects.
+
+The moon reflection is more beautiful than the moon itself.
+
+Every lyric changes the water.
+
+Tiny ripples.
+
+Lotus flowers.
+
+Floating petals.
+
+Mist.
+
+
+---
+
+World 4
+
+Whispering Forest
+
+Massive ancient trees.
+
+Light rays.
+
+Fireflies.
+
+Falling leaves.
+
+Birds.
+
+Soft rain.
+
+Roots glowing faintly.
+
+
+---
+
+World 5
+
+Sky Beyond Reality
+
+Floating islands.
+
+Broken ruins.
+
+Waterfalls falling into clouds.
+
+Aurora.
+
+Nebula.
+
+Stars.
+
+Constellations slowly forming.
+
+Everything feels impossible.
+
+
+---
+
+World 6
+
+The Last Dawn
+
+The moon slowly fades.
+
+Night becomes morning.
+
+Fog disappears.
+
+Golden light appears.
+
+The music ends.
+
+Nothing else happens.
+
+Silence.
+
+
+---
+
+Environment
+
+Instead of
+
+Tree
+
+Build
+
+Tree
+
+Bark
+
+Branches
+
+Leaves
+
+Wind
+
+Shadow
+
+Wet surface
+
+Falling leaves
+
+Light scattering
+
+Moss
+
+Flowers
+
+Grass
+
+Butterflies
+
+Fireflies
+
+Everything should be layered.
+
+
+---
+
+Mountains
+
+Real mountains.
+
+Not game mountains.
+
+Huge cliffs.
+
+Snow.
+
+Rock.
+
+Fog.
+
+Waterfalls.
+
+Cloud shadows.
+
+Birds.
+
+Wind.
+
+
+---
+
+Water
+
+Professional water.
+
+Reflection.
+
+Refraction.
+
+Depth.
+
+Foam.
+
+Rain.
+
+Ripples.
+
+Moon reflection.
+
+Mist.
+
+Floating flowers.
+
+
+---
+
+Sky
+
+Volumetric clouds.
+
+Nebula.
+
+Stars.
+
+Milky Way.
+
+Aurora.
+
+Moon halo.
+
+Shooting stars.
+
+Atmospheric scattering.
+
+
+---
+
+Moon
+
+The moon becomes the main character.
+
+Not a background object.
+
+Professional shader.
+
+Height map.
+
+Normal map.
+
+Soft glow.
+
+Atmosphere.
+
+Cloud shadows.
+
+Tiny particles.
+
+Moonlight illuminating the whole world.
+
+
+---
+
+Camera
+
+Never static.
+
+Always cinematic.
+
+Film-quality movement.
+
+Very slow.
+
+Breathing movement.
+
+Focus pull.
+
+Orbit.
+
+Wide shots.
+
+Close-ups.
+
+Drone shots.
+
+
+---
+
+Lyrics
+
+Don't show them like karaoke.
+
+Instead:
+
+Every lyric becomes an event.
+
+Example
+
+Lyric begins
+
+↓
+
+Fog opens
+
+↓
+
+Moon brightens
+
+↓
+
+Stars move
+
+↓
+
+Water ripples
+
+↓
+
+Fireflies gather
+
+↓
+
+Trees sway
+
+↓
+
+Particles glow
+
+↓
+
+Camera slowly moves
+
+The user feels the lyric before reading it.
+
+
+---
+
+Music Engine
+
+Every frequency controls something.
+
+Bass
+
+Mountains
+
+Water
+
+Camera vibration
+
+
+Mid
+
+Trees
+
+Fog
+
+Clouds
+
+
+High
+
+Fireflies
+
+Stars
+
+Bloom
+
+
+
+---
+
+Hidden Events
+
+The best experiences are discovered.
+
+Examples:
+
+Stay still for 20 seconds and a shooting star appears.
+
+Watch the moon long enough and a faint halo forms.
+
+Visit World 3 after World 5 and the water briefly reflects the galaxy.
+
+A rare bird crosses the moon only once per session.
+
+
+These moments create a sense of discovery without distracting from the music.
+
+
+---
+
+Technical Stack
+
+React 19
+
+TypeScript
+
+Vite
+
+Three.js
+
+React Three Fiber
+
+Drei
+
+Motion (motion/react)
+
+GSAP (only where needed)
+
+Zustand
+
+Howler
+
+GLSL custom shaders
+
+React Three Postprocessing
+
+Troika Three Text (for 3D lyric rendering)
+
+Lamina
+
+Leva (development only)
+
+
+
+---
+
+AI Integration
+
+Since you're using Google AI Studio, I recommend not pasting the full licensed lyrics into the PRD.
+
+Instead:
+
+Keep the PRD generic and architecture-focused.
+
+Store the licensed lyrics in a separate local JSON or data file that only your application reads.
+
+Let the timeline engine synchronize those lyrics with visual events at runtime.
+
+
+This keeps the architecture reusable while keeping the licensed content separate from your design documentation.
+
+I would also give the project a stronger identity than "website." The goal should be to create something that feels closer to an interactive short film than a conventional web page—where the browser simply becomes the medium for a cinematic experience.

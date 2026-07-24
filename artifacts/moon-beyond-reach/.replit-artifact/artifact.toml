@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Moon Beyond Reach"
+version = "1.0.0"
+id = "artifacts/moon-beyond-reach"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22388
+
+[services.development]
+run = "pnpm --filter @workspace/moon-beyond-reach run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/moon-beyond-reach", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/moon-beyond-reach/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22388"
+BASE_PATH = "/"

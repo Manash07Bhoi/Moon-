@@ -1,0 +1,605 @@
+Your overall direction is strong, but there is one change I'd make before you write any code.
+
+Don't think of this as "a website that plays a song with 3D effects."
+
+Think of it as an interactive real-time cinematic experience, where the website is only the delivery platform.
+
+The two uploaded documents already provide an excellent foundation. They define a six-act narrative, a strong technical architecture, quality tiers, an audio-reactive engine, a timeline-driven lyric system, accessibility, and performance constraints. They are already much closer to an industry-grade design document than a typical PRD.  
+
+What I would add is Version 2.0, focusing on the elements that create a true "wow" factor rather than simply adding more visual effects.
+
+Upgrade the vision
+
+Instead of:
+
+> Song + Moon + Lyrics + Forest
+
+
+
+Create:
+
+> An emotional universe that reacts to the music.
+
+
+
+Every visual element should feel alive.
+
+Stars breathe.
+
+Mountains subtly shift with the soundtrack.
+
+Trees react to the wind and audio.
+
+Mist curls around rocks.
+
+Moonlight scatters through leaves.
+
+Water reflects every particle.
+
+Fireflies gather around lyric events.
+
+Clouds slowly reveal and hide the moon.
+
+
+
+---
+
+Recommended Technology Stack
+
+Keep your current stack, but expand it.
+
+React 19
+TypeScript
+Vite
+
+three
+@react-three/fiber
+@react-three/drei
+
+motion
+GSAP
+
+@react-three/postprocessing
+
+leva
+
+zustand
+
+howler
+
+lenis
+
+react-use
+
+maath
+
+three-mesh-bvh
+
+lamina
+
+postprocessing
+
+react-spring
+
+simplex-noise
+
+glslify
+
+troika-three-text
+
+use-gesture
+
+react-intersection-observer
+
+
+---
+
+World Architecture
+
+Instead of a single scene:
+
+Universe
+
+    Sky
+
+        Moon
+
+        Stars
+
+        Galaxy
+
+        Clouds
+
+World
+
+        Mountains
+
+        Forest
+
+        Lake
+
+        River
+
+        Flowers
+
+        Fog
+
+Life
+
+        Fireflies
+
+        Birds
+
+        Butterflies
+
+        Leaves
+
+        Water Particles
+
+Emotion Layer
+
+        Lyrics Engine
+
+        Music Engine
+
+        Camera Director
+
+        Weather Director
+
+        Color Director
+
+        Memory Director
+
+Notice the last four systems are directors, not effects.
+
+
+---
+
+AI Directors
+
+Instead of hardcoding every animation, introduce director systems.
+
+Camera Director
+
+Controls
+
+Dolly
+
+Crane
+
+Orbit
+
+Cinematic zoom
+
+Focus pull
+
+Dutch angle
+
+Handheld breathing
+
+Slow cinematic drift
+
+
+
+---
+
+Weather Director
+
+Controls
+
+Wind
+
+Fog
+
+Rain
+
+Snow
+
+Mist
+
+Fireflies
+
+Clouds
+
+God rays
+
+
+
+---
+
+Emotion Director
+
+Reads
+
+Song timing
+
+Lyrics
+
+Audio energy
+
+
+Outputs
+
+Color
+
+Bloom
+
+Camera
+
+Fog
+
+Tree movement
+
+Moon brightness
+
+
+
+---
+
+Lyric Director
+
+Every lyric becomes an event.
+
+Example:
+
+Lyric begins
+
+↓
+
+Camera moves
+
+↓
+
+Particles gather
+
+↓
+
+Moon brightens
+
+↓
+
+Fog opens
+
+↓
+
+Constellation forms
+
+↓
+
+Lyric disappears
+
+↓
+
+Everything calms again
+
+The user shouldn't feel like they're reading subtitles—they should feel like the world is responding.
+
+
+---
+
+Shader Library
+
+Create custom shaders for:
+
+Moon shader
+
+Water shader
+
+Sky shader
+
+Aurora shader
+
+Cloud shader
+
+Fog shader
+
+Grass shader
+
+Leaf shader
+
+Fire shader
+
+Firefly shader
+
+Rain shader
+
+Star shader
+
+Crystal shader
+
+Portal shader
+
+
+
+---
+
+Camera System
+
+Never use a static camera.
+
+Use:
+
+Cinematic framing
+
+Rule of thirds
+
+Dynamic focus
+
+Rack focus
+
+Slow breathing motion
+
+Intelligent orbit
+
+Film-style cuts between acts
+
+
+
+---
+
+Environment Detail
+
+Instead of:
+
+Mountain
+
+Create
+
+Mountain
+
+Snow
+
+Grass
+
+Rocks
+
+Flowers
+
+Fog
+
+Clouds
+
+Trees
+
+Waterfalls
+
+Birds
+
+Wind
+
+Sun rays
+
+Wet reflections
+
+
+---
+
+Moon
+
+Don't make it just a sphere.
+
+Use
+
+Craters
+
+Height map
+
+Normal map
+
+Emission map
+
+Atmospheric halo
+
+Bloom
+
+Volumetric light
+
+Dynamic clouds passing in front
+
+Soft moon dust glow
+
+
+
+---
+
+Tree System
+
+Every tree should have
+
+Wind animation
+
+Leaf animation
+
+Seasonal color variation
+
+Shadow animation
+
+Light scattering
+
+Moss
+
+Branch sway
+
+Falling leaves
+
+
+
+---
+
+Water
+
+Professional water includes
+
+Reflection
+
+Refraction
+
+Ripples
+
+Shore foam
+
+Moon reflection
+
+Floating petals
+
+Mist
+
+Rain interaction
+
+
+
+---
+
+Sky
+
+The sky should continuously evolve.
+
+Include
+
+Milky Way
+
+Shooting stars
+
+Nebula
+
+Aurora
+
+Clouds
+
+Moon halo
+
+Atmospheric scattering
+
+Volumetric stars
+
+
+
+---
+
+Advanced Particle Systems
+
+Separate particle systems for
+
+Fireflies
+
+Floating pollen
+
+Dust
+
+Leaves
+
+Mist
+
+Rain
+
+Sparkles
+
+Falling stars
+
+Moon particles
+
+
+
+---
+
+Sound Design
+
+Layer the soundtrack with environmental audio:
+
+Wind
+
+Leaves
+
+Water
+
+Birds
+
+Insects
+
+Thunder (if used)
+
+Reverb
+
+Echo
+
+Footsteps (if applicable)
+
+
+
+---
+
+Hidden Cinematic Moments
+
+Avoid making every effect obvious.
+
+Examples:
+
+A shooting star appears only after the user stays still for 30 seconds.
+
+A rare constellation forms only once per session.
+
+Tiny fireflies spell a subtle symbol before dispersing.
+
+At dawn, the last moon reflection fades before the moon itself disappears.
+
+
+These restrained moments are often more memorable than constant visual intensity.
+
+
+---
+
+Recommended Project Structure
+
+I would expand your architecture into approximately:
+
+Core Engine
+
+Scene Manager
+
+Timeline Engine
+
+Lyric Engine
+
+Audio Engine
+
+Shader Engine
+
+Particle Engine
+
+Camera Director
+
+Weather Director
+
+Emotion Director
+
+Rendering Pipeline
+
+Post Processing Pipeline
+
+Physics Layer
+
+Asset Manager
+
+Animation Manager
+
+Interaction Manager
+
+Performance Manager
+
+Accessibility Layer
+
+Developer Tools
+
+Analytics (optional, if ever needed)
+
+Testing
+
+Deployment
+
+One recommendation I would not make
+
+You mentioned "100 percent realistic moon, mountains, trees."
+
+That isn't a realistic target for a browser running on typical hardware, especially mobile. Modern browsers can achieve highly realistic real-time graphics, but not true photorealism comparable to offline-rendered VFX. Aim for stylized cinematic realism—the level seen in high-end WebGL showcases—because it provides a much better balance of beauty, performance, and compatibility.
+
+Overall, the PRD and agent.md you've uploaded are already an excellent architectural base. My additions are primarily about elevating the artistic direction and system design rather than changing the underlying architecture. They complement the existing documents instead of replacing them.  
