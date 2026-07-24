@@ -1,6 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useExperienceStore } from '../stores/experienceStore';
+
+// Particle positions computed once — Math.random() in JSX re-rolls every render
+const PARTICLE_COUNT = 20;
+const particles = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
+  id: i,
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  duration: 3 + Math.random() * 4,
+  delay: Math.random() * 5,
+}));
 
 export function EntryGate() {
   const hasEntered = useExperienceStore((s) => s.hasEntered);
@@ -9,19 +19,22 @@ export function EntryGate() {
   const [pulse, setPulse] = useState(false);
 
   useEffect(() => {
-    // Reveal title slowly after particles/stars (conceptual delay)
     const t = setTimeout(() => setShowTitle(true), 3000);
-    
-    // Heartbeat pulse interval
+
     const p = setInterval(() => {
       setPulse(true);
-      setTimeout(() => setPulse(false), 200);
-      setTimeout(() => {
+      const t1 = setTimeout(() => setPulse(false), 200);
+      const t2 = setTimeout(() => {
         setPulse(true);
-        setTimeout(() => setPulse(false), 200);
+        const t3 = setTimeout(() => setPulse(false), 200);
+        return () => clearTimeout(t3);
       }, 400);
-    }, 2000); // 1 heartbeat every 2s
-    
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+      };
+    }, 2000);
+
     return () => {
       clearTimeout(t);
       clearInterval(p);
@@ -31,20 +44,20 @@ export function EntryGate() {
   return (
     <AnimatePresence>
       {!hasEntered && (
-        <motion.div 
+        <motion.div
           className="absolute inset-0 z-50 flex items-center justify-center bg-[#05060A] text-[#DDD9E0] cursor-pointer"
           onClick={() => setEntered(true)}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 3, ease: 'easeInOut' } }}
         >
           {/* Heartbeat pulse overlay */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 bg-[#10172B] mix-blend-screen opacity-0"
             animate={{ opacity: pulse ? 0.1 : 0 }}
             transition={{ duration: 0.2 }}
           />
 
-          <motion.div 
+          <motion.div
             className="text-center flex flex-col items-center z-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: showTitle ? 1 : 0, y: showTitle ? 0 : 10 }}
@@ -58,27 +71,20 @@ export function EntryGate() {
               play the song of distance · tap to begin
             </p>
           </motion.div>
-          
-          {/* Simple CSS particles for loading feel */}
+
+          {/* CSS particles — memoized positions, not re-rolled on re-render */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-            {Array.from({ length: 20 }).map((_, i) => (
+            {particles.map((p) => (
               <motion.div
-                key={i}
+                key={p.id}
                 className="absolute w-1 h-1 bg-[#DDD9E0] rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [0, -20, 0],
-                  opacity: [0, 1, 0],
-                  scale: [0, 1, 0],
-                }}
+                style={{ left: p.left, top: p.top }}
+                animate={{ y: [0, -20, 0], opacity: [0, 1, 0], scale: [0, 1, 0] }}
                 transition={{
-                  duration: 3 + Math.random() * 4,
+                  duration: p.duration,
                   repeat: Infinity,
-                  delay: Math.random() * 5,
-                  ease: "easeInOut"
+                  delay: p.delay,
+                  ease: 'easeInOut',
                 }}
               />
             ))}
