@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === "production") {
   const publicPath = path.resolve(__dirname, "../../moon-beyond-reach/dist/public");
   app.use(express.static(publicPath));
 
-  app.get("*", (req, res) => {
+  app.get(/(.*)/, (req, res) => {
     res.sendFile(path.resolve(publicPath, "index.html"));
   });
 }
