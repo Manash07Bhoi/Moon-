@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { ReactLenis } from 'lenis/react';
 import { useExperienceStore } from './stores/experienceStore';
@@ -67,6 +68,27 @@ const dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1
 
 export default function App() {
   const hasEntered = useExperienceStore((s) => s.hasEntered);
+  // webglFailed starts true when the probe already determined WebGL is absent.
+  // It can also flip true at runtime if makeRenderer throws despite the probe,
+  // in which case the window error handler below suppresses the dev overlay.
+  const [webglFailed, setWebglFailed] = useState(!webGLTier.available);
+
+  useEffect(() => {
+    if (webglFailed) return; // already failed — no need to listen
+    const handle = (event: ErrorEvent) => {
+      const msg = event.error?.message ?? event.message ?? '';
+      if (msg.includes('WebGL') || msg.includes('context')) {
+        // Suppress the Vite dev overlay — CanvasErrorBoundary / WebGLFallback
+        // already provides a graceful UI for this situation.
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        setWebglFailed(true);
+      }
+    };
+    // Capture phase so we run before the Vite overlay plugin's listener
+    window.addEventListener('error', handle, true);
+    return () => window.removeEventListener('error', handle, true);
+  }, [webglFailed]);
 
   return (
     <ReactLenis root>
@@ -80,7 +102,7 @@ export default function App() {
 
         {/* 3D World */}
         <div className="absolute inset-0 pointer-events-auto z-0">
-          {webGLTier.available ? (
+          {!webglFailed ? (
             <CanvasErrorBoundary>
               <Canvas
                 gl={makeRenderer}
