@@ -69,6 +69,9 @@ export default defineConfig({
     strictPort: true,
     host: '0.0.0.0',
     allowedHosts: true,
+    // Disable the HMR error overlay — WebGL failures are handled gracefully
+    // by CanvasErrorBoundary / WebGLFallback and don't need a blocking popup.
+    hmr: { overlay: false },
     fs: {
       strict: true,
     },
