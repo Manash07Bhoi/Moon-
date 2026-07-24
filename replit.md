@@ -1,6 +1,6 @@
-# [Project name]
+# Moon Beyond Reach
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A cinematic, music-driven 3D web experience about unspoken love — six acts rendered in React Three Fiber, scored to the Odia track "Dura Akasare Janha Tie."
 
 ## Run & Operate
 

@@ -1,6 +1,5 @@
-import { EffectComposer, Bloom, DepthOfField, ChromaticAberration, Vignette, FilmGrain } from '@react-three/postprocessing';
+import { EffectComposer, Bloom, DepthOfField, ChromaticAberration, Vignette, Noise } from '@react-three/postprocessing';
 import { useDeviceTier } from '../systems/quality/useDeviceTier';
-import { BlendFunction } from '@react-three/postprocessing';
 import { Vector2 } from 'three';
 
 export function PostProcessing() {
@@ -30,7 +29,7 @@ export function PostProcessing() {
       <DepthOfField focusDistance={0.01} focalLength={0.02} bokehScale={2} />
       <ChromaticAberration offset={new Vector2(0.0005, 0.0005)} />
       <Vignette eskil={false} offset={0.1} darkness={0.8} />
-      <FilmGrain premultiply blendFunction={BlendFunction.ADD} />
+      <Noise premultiply />
     </EffectComposer>
   );
 }
