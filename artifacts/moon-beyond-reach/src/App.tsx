@@ -105,7 +105,7 @@ export default function App() {
           {!webglFailed ? (
             <CanvasErrorBoundary>
               <Canvas
-                gl={makeRenderer}
+                gl={makeRenderer as any}
                 camera={{ position: [0, 0, 50], fov: 45 }}
                 dpr={dpr}
                 onCreated={({ gl }) => {
