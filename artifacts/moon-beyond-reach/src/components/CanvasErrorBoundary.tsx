@@ -27,12 +27,13 @@ export class CanvasErrorBoundary extends Component<Props, State> {
     if (this.state.error) {
       return (
         <div className="absolute inset-0 flex items-center justify-center bg-[#05060A] text-[#DDD9E0]">
-          <div className="text-center space-y-4 opacity-40">
-            <p className="font-serif italic text-2xl tracking-widest">
-              Dura Akasare Janha Tie
+          <div className="text-center space-y-6 px-8">
+            <p className="font-serif italic text-2xl md:text-3xl tracking-widest leading-relaxed">
+              Dura Akasare<br />Janha Tie
             </p>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase">
-              WebGL unavailable in this environment
+            <div className="w-px h-10 bg-gradient-to-b from-[#DDD9E0] to-transparent opacity-40 mx-auto" />
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+              3D rendering unavailable in this environment
             </p>
           </div>
         </div>

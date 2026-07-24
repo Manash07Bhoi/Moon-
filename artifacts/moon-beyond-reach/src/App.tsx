@@ -8,6 +8,7 @@ import { LyricCueOverlay } from './components/LyricCueOverlay';
 import { MuteControl } from './components/MuteControl';
 import { ActIndicator } from './components/ActIndicator';
 import { CanvasErrorBoundary } from './components/CanvasErrorBoundary';
+import { PostProcessingBoundary } from './components/PostProcessingBoundary';
 import { WebGLFallback } from './components/WebGLFallback';
 import { webGLTier } from './systems/webgl/WebGLProbe';
 
@@ -31,7 +32,6 @@ import { PostProcessing } from './components/PostProcessing';
  *  2. Set powerPreference:'default' to allow software (SwiftShader) fallback
  */
 function makeRenderer(canvas: HTMLCanvasElement): THREE.WebGLRenderer {
-  // Try WebGL2, then WebGL1
   const contextTypes = ['webgl2', 'webgl', 'experimental-webgl'] as const;
   for (const type of contextTypes) {
     try {
@@ -69,23 +69,20 @@ const dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1
 export default function App() {
   const hasEntered = useExperienceStore((s) => s.hasEntered);
   // webglFailed starts true when the probe already determined WebGL is absent.
-  // It can also flip true at runtime if makeRenderer throws despite the probe,
-  // in which case the window error handler below suppresses the dev overlay.
   const [webglFailed, setWebglFailed] = useState(!webGLTier.available);
 
   useEffect(() => {
-    if (webglFailed) return; // already failed — no need to listen
+    if (webglFailed) return;
     const handle = (event: ErrorEvent) => {
-      const msg = event.error?.message ?? event.message ?? '';
-      if (msg.includes('WebGL') || msg.includes('context')) {
-        // Suppress the Vite dev overlay — CanvasErrorBoundary / WebGLFallback
-        // already provides a graceful UI for this situation.
+      // Match ONLY our exact makeRenderer error — do not use broad substring
+      // matches like 'context' which would catch AudioContext errors on mobile.
+      if (event.error?.message === 'WebGL unavailable: all context types failed') {
         event.preventDefault();
         event.stopImmediatePropagation();
         setWebglFailed(true);
       }
     };
-    // Capture phase so we run before the Vite overlay plugin's listener
+    // Capture phase so we run before other listeners
     window.addEventListener('error', handle, true);
     return () => window.removeEventListener('error', handle, true);
   }, [webglFailed]);
@@ -105,7 +102,7 @@ export default function App() {
           {!webglFailed ? (
             <CanvasErrorBoundary>
               <Canvas
-                gl={makeRenderer as any}
+                gl={makeRenderer}
                 camera={{ position: [0, 0, 50], fov: 45 }}
                 dpr={dpr}
                 onCreated={({ gl }) => {
@@ -133,7 +130,12 @@ export default function App() {
                     <directionalLight position={[0, 50, 50]} intensity={0.2} color="#8E7FCB" />
                     <pointLight position={[-20, 20, -20]} intensity={0.1} color="#5FE0D8" />
 
-                    <PostProcessing />
+                    {/* PostProcessing is wrapped in its own boundary so a crash
+                        here degrades gracefully (no effects) instead of blacking
+                        out the entire scene. */}
+                    <PostProcessingBoundary>
+                      <PostProcessing />
+                    </PostProcessingBoundary>
                   </>
                 )}
               </Canvas>
